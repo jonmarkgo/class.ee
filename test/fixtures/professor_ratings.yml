@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  comments: MyString
+  firstname: 1
+  knowledge: 1
+  engagement: 1
+  curriculum: 1
+  openness: 1
+  officehelp: 1
+  assignments: 1
+  clarity: 1
+  fun: 1
+  caring: 1
+  course_id: 1
+  professor_id: 1
+
+two:
+  comments: MyString
+  firstname: 1
+  knowledge: 1
+  engagement: 1
+  curriculum: 1
+  openness: 1
+  officehelp: 1
+  assignments: 1
+  clarity: 1
+  fun: 1
+  caring: 1
+  course_id: 1
+  professor_id: 1

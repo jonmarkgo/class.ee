@@ -1,0 +1,69 @@
+<%= form_for(@professor_rating) do |f| %>
+  <% if @professor_rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@professor_rating.errors.count, "error") %> prohibited this professor_rating from being saved:</h2>
+
+      <ul>
+      <% @professor_rating.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :knowledge %><br />
+    <%= f.text_field :knowledge %>
+  </div>
+  <div class="field">
+    <%= f.label :engagement %><br />
+    <%= f.text_field :engagement %>
+  </div>
+  <div class="field">
+    <%= f.label :curriculum %><br />
+    <%= f.text_field :curriculum %>
+  </div>
+  <div class="field">
+    <%= f.label :openness %><br />
+    <%= f.text_field :openness %>
+  </div>
+  <div class="field">
+    <%= f.label :officehelp %><br />
+    <%= f.text_field :officehelp %>
+  </div>
+  <div class="field">
+    <%= f.label :assignments %><br />
+    <%= f.text_field :assignments %>
+  </div>
+  <div class="field">
+    <%= f.label :clarity %><br />
+    <%= f.text_field :clarity %>
+  </div>
+  <div class="field">
+    <%= f.label :fun %><br />
+    <%= f.text_field :fun %>
+  </div>
+  <div class="field">
+    <%= f.label :caring %><br />
+    <%= f.text_field :caring %>
+  </div>
+  <div class="field">
+    <%= f.label :course_id %><br />
+    <%= f.text_field :course_id %>
+  </div>
+  <div class="field">
+    <%= f.label :professor_id %><br />
+    <%= f.text_field :professor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
