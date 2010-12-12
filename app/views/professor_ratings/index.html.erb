@@ -3,18 +3,9 @@
 <table>
   <tr>
     <th>Comments</th>
-    <th>Firstname</th>
-    <th>Knowledge</th>
-    <th>Engagement</th>
-    <th>Curriculum</th>
-    <th>Openness</th>
-    <th>Officehelp</th>
-    <th>Assignments</th>
-    <th>Clarity</th>
-    <th>Fun</th>
-    <th>Caring</th>
     <th>Course</th>
     <th>Professor</th>
+    <th>Tags</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,18 +14,9 @@
 <% @professor_ratings.each do |professor_rating| %>
   <tr>
     <td><%= professor_rating.comments %></td>
-    <td><%= professor_rating.firstname %></td>
-    <td><%= professor_rating.knowledge %></td>
-    <td><%= professor_rating.engagement %></td>
-    <td><%= professor_rating.curriculum %></td>
-    <td><%= professor_rating.openness %></td>
-    <td><%= professor_rating.officehelp %></td>
-    <td><%= professor_rating.assignments %></td>
-    <td><%= professor_rating.clarity %></td>
-    <td><%= professor_rating.fun %></td>
-    <td><%= professor_rating.caring %></td>
-    <td><%= professor_rating.course_id %></td>
-    <td><%= professor_rating.professor_id %></td>
+    <td><%= link_to professor_rating.course.name, course_path(professor_rating.course) %></td>
+    <td><%= link_to professor_rating.professor.title + ' ' + professor_rating.professor.firstname + ' ' + professor_rating.professor.lastname, professor_path(professor_rating.professor) %></td>
+    <td><%= professor_rating.owned_tags %></td>
     <td><%= link_to 'Show', professor_rating %></td>
     <td><%= link_to 'Edit', edit_professor_rating_path(professor_rating) %></td>
     <td><%= link_to 'Destroy', professor_rating, :confirm => 'Are you sure?', :method => :delete %></td>

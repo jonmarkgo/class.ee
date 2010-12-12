@@ -8,6 +8,7 @@
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Title</th>
+    <th>Tag Cloud</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +16,17 @@
 
 <% @professors.each do |professor| %>
   <tr>
-    <td><%= professor.department_id %></td>
+    <td><%= link_to professor.department.name, department_path(professor.department) %></td>
     <td><%= professor.office_building %></td>
     <td><%= professor.office_room %></td>
     <td><%= professor.firstname %></td>
     <td><%= professor.lastname %></td>
     <td><%= professor.title %></td>
+    <td>
+      <% tag_cloud(professor.tag_counts_on(:professor_ratings), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+        <%= link_to tag.name, { :action => :show, :id => tag.name }, :class => css_class %>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', professor %></td>
     <td><%= link_to 'Edit', edit_professor_path(professor) %></td>
     <td><%= link_to 'Destroy', professor, :confirm => 'Are you sure?', :method => :delete %></td>

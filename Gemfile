@@ -4,7 +4,7 @@ gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'acts-as-taggable-on'
 gem 'mysql2'
 gem 'jquery-rails'
 # Use unicorn as the web server

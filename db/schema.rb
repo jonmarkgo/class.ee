@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212035815) do
+ActiveRecord::Schema.define(:version => 20101212181533) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(:version => 20101212035815) do
 
   create_table "professor_ratings", :force => true do |t|
     t.string   "comments"
-    t.integer  "firstname"
-    t.integer  "knowledge"
-    t.integer  "engagement"
-    t.integer  "curriculum"
-    t.integer  "openness"
-    t.integer  "officehelp"
-    t.integer  "assignments"
-    t.integer  "clarity"
-    t.integer  "fun"
-    t.integer  "caring"
     t.integer  "course_id"
     t.integer  "professor_id"
     t.datetime "created_at"
@@ -58,6 +48,11 @@ ActiveRecord::Schema.define(:version => 20101212035815) do
     t.datetime "updated_at"
   end
 
+  create_table "professorscourses", :force => true do |t|
+    t.integer "course_id"
+    t.integer "professor_id"
+  end
+
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.integer  "state_id"
@@ -70,6 +65,23 @@ ActiveRecord::Schema.define(:version => 20101212035815) do
     t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
   end
 
 end

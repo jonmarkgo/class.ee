@@ -3,7 +3,6 @@ class ProfessorRatingsController < ApplicationController
   # GET /professor_ratings.xml
   def index
     @professor_ratings = ProfessorRating.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @professor_ratings }
@@ -14,7 +13,7 @@ class ProfessorRatingsController < ApplicationController
   # GET /professor_ratings/1.xml
   def show
     @professor_rating = ProfessorRating.find(params[:id])
-
+    #@tags = ProfessorRating.tag_counts_on(:tags)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @professor_rating }
@@ -60,6 +59,7 @@ class ProfessorRatingsController < ApplicationController
 
     respond_to do |format|
       if @professor_rating.update_attributes(params[:professor_rating])
+        @professor_rating.tag(@professor_rating.professor, :with => params[:professor][:tag_list], :on => :professor_ratings)
         format.html { redirect_to(@professor_rating, :notice => 'Professor rating was successfully updated.') }
         format.xml  { head :ok }
       else
