@@ -1,0 +1,23 @@
+defaults: &defaults
+    # Required.
+    client_id: 183107988366074
+    client_secret: 84af0d7feb48d70b29e0fc38ffa5dd4b
+    authorization_server: https://graph.facebook.com
+    requested_scope: email,offline_access,publish_stream
+    authorize_path: /oauth/authorize
+    access_token_path: /oauth/access_token
+
+development:
+  <<: *defaults
+
+test: &test
+  <<: *defaults
+
+production: &production
+  <<: *defaults
+
+# staging:
+#   <<: *production
+#
+# cucumber:
+#   <<: *test

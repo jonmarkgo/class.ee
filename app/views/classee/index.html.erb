@@ -9,6 +9,38 @@
   </head>
   <body>
   <%= yield %>
+  <script>
+  $(function() {
+    $( "#school" ).autocomplete({
+      minLength: 0,
+      source: "schools/search",
+      focus: function( event, ui ) {
+        $( "#school" ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( "#school" ).val( ui.item.label );
+        $( "#school-id" ).val( ui.item.value );
+        $( "#school-state" ).html( ui.item.state );
+        $( "#school-icon" ).attr( "src", "images/schools/" + ui.item.value + ".jpg" );
+
+        return false;
+      }
+    })
+    .data( "autocomplete" )._renderItem = function( ul, item ) {
+      return $( "<li></li>" )
+        .data( "item.autocomplete", item )
+        .append( "<a>" + item.label + "<br>" + item.state + "</a>" )
+        .appendTo( ul );
+    };
+  });
+  </script>
+
+<div id="school-label">Select a school:</div>
+  <img id="school-icon" src="#"  class="ui-state-default"//>
+  <input id="school"/>
+  <input type="hidden" id="school-id"/>
+  <p id="school-state"></p>
 
   </body>
 </html>

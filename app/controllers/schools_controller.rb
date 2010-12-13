@@ -45,7 +45,11 @@ class SchoolsController < ApplicationController
     def search
       @school_name = '%' + params[:term] + '%'
       @schools = School.find(:all, :conditions => ["name LIKE ?",@school_name])
-      return @schools
+      @school_array = []
+      @schools.each do |school|
+        @school_array << {"label" => school.name, "value" => school.id, "state" => school.state.name}
+      end
+      return @school_array
     end
 
   # POST /schools

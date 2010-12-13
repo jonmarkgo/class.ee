@@ -8,6 +8,8 @@ gem 'acts-as-taggable-on'
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'devise'
+gem "oauth2"
+gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
 # Use unicorn as the web server
 # gem 'unicorn'
 

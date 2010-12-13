@@ -7,9 +7,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-<%= yield %>
-
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+    <%= link_to_oauth2 "Sign In with Facebook" %>
+    <%= link_to "Log In",new_user_session_path %>
+  <% end %>
+  <%= yield %>
 </body>
 </html>
