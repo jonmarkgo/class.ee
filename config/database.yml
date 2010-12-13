@@ -32,8 +32,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: class.ee_production
+  database: classee_production
   pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  username: classee_product
+  password: "o9)$#@G7M&f,"
+  host: 127.0.0.1
