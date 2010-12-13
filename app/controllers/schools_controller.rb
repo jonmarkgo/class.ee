@@ -13,11 +13,15 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.xml
   def show
-    @school = School.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @school }
+    if params[:term]
+      render :json => search
+    else
+      @school = School.find(params[:id])
+  
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @school }
+      end
     end
   end
 
@@ -36,6 +40,13 @@ class SchoolsController < ApplicationController
   def edit
     @school = School.find(params[:id])
   end
+  
+  private
+    def search
+      @school_name = '%' + params[:term] + '%'
+      @schools = School.find(:all, :conditions => ["name LIKE ?",@school_name])
+      return @schools
+    end
 
   # POST /schools
   # POST /schools.xml

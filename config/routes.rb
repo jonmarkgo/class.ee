@@ -12,6 +12,8 @@ ClassEe::Application.routes.draw do
   resources :departments
 
   resources :courses
+  
+  resources :classee
   #root :to => "professor_ratings"
   # The priority is based upon order of creation:
   # first created -> highest priority.

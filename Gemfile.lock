@@ -48,6 +48,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.6)
+    nifty-generators (0.4.2)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -62,6 +63,7 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails3-jquery-autocomplete (0.6.0)
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -80,7 +82,9 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  devise (= 1.1.5)
+  devise
   jquery-rails
   mysql2
+  nifty-generators
   rails (= 3.0.3)
+  rails3-jquery-autocomplete
