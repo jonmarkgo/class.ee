@@ -7,7 +7,7 @@ gem 'rails', '3.0.3'
 gem 'acts-as-taggable-on'
 gem 'mysql2'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', '1.1.5'
 # Use unicorn as the web server
 # gem 'unicorn'
 

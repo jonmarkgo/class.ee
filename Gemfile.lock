@@ -80,7 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  devise
+  devise (= 1.1.5)
   jquery-rails
   mysql2
   rails (= 3.0.3)
