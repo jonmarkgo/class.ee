@@ -90,7 +90,7 @@ a {
 	transition: all .1s linear;
 }
 
-a:hover,
+a:hover:not(.ui-state-hover),
 #menu .current a {
 	background: #F83D87;
 	color: #fff;
@@ -474,7 +474,9 @@ input[type=submit]:hover {
   background-repeat:no-repeat;
   background-position: 2px;
 }
-
+#professor, #rating-form {
+  display: none;
+}
 img.alignleft, 
 img.alignright { 
 	background: #f2f2f2;

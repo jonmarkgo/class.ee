@@ -52,7 +52,30 @@ class ProfessorsController < ApplicationController
       end
     end
   end
-
+  
+  def school
+    @professor_name = '%' + params[:term] + '%'
+    #Refine this query a bit, its bulky
+    @professors = Professor.includes(:department => :school).find(:all, :conditions => ["schools.id = ? AND (firstname LIKE ? OR lastname LIKE ?)",params[:school_id],@professor_name,@professor_name])
+    @professor_array = []
+    @professors.each do |professor|
+      @professor_array << {"label" => professor.title + " " + professor.firstname + " " + professor.lastname, "value" => professor.id}
+    end
+    render :json => @professor_array
+  end
+  
+  def tag_search
+    @tag_cloud = Professor.tag_counts_on(:professor_ratings)
+    @tag_array = []
+    regex = Regexp.new("^" + Regexp.escape(params[:term]) + "(.)")
+    @tag_cloud.each do |tag|
+      if regex.match(tag.name)
+        @tag_array << tag.name
+      end
+    end
+    render :json => @tag_array
+  end
+  
   # PUT /professors/1
   # PUT /professors/1.xml
   def update

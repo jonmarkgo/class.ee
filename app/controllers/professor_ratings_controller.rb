@@ -1,5 +1,5 @@
 class ProfessorRatingsController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   # GET /professor_ratings
   # GET /professor_ratings.xml
   def index

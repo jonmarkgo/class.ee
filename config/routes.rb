@@ -6,8 +6,10 @@ ClassEe::Application.routes.draw do
   resources :schools
 
   resources :professors
+  match "/professors/school/:school_id" => "professors#school"
 
   resources :professor_ratings
+  match "/professors/tags/search" => "professors#tag_search"
 
   resources :departments
 
