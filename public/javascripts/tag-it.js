@@ -44,7 +44,7 @@
 				}
 			}
 			// Comma/Space/Enter are all valid delimiters for new tags.
-			else if (event.which == COMMA || event.which == SPACE || event.which == ENTER) {
+			else if (event.which == COMMA || event.which == ENTER) {
 				event.preventDefault();
 
 				var typed = tag_input.val();

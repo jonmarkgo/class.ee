@@ -1,5 +1,3 @@
-
-
 <div id="home-buttons">
   <%= link_to "Read", "#", :id => "read-button", :class => "home-button alignleft" %>
   <%= link_to "Rate", "#", :id => "rate-button", :class => "home-button alignright" %>
@@ -8,7 +6,14 @@
 <div id="home-find-rating">
   Find a rating
 </div>
-<img src="#" alt="" id="professor_rating_photo" class="thumbnail alignright">
+<div id="home-add-rating-right" class="alignright" style="text-align: right;">
+  <img src="#" alt="" id="professor_rating_photo" class="thumbnail alignright">
+  <br />
+  <b id="rating-school"></b>
+  <p id="rating-course"></p>
+  <b>Tags:</b>
+  <span id="rating-tagcloud"></span>
+</div>
 <div id="home-add-rating">
   <input type="text" class="grid_7" id="school" value="Start typing your school's name..." />
   <input type="text" class="grid_7" id="professor" value="Start typing your professor's name..." />

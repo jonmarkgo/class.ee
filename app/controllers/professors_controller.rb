@@ -86,6 +86,11 @@ class ProfessorsController < ApplicationController
     end
     render :json => @tag_array
   end
+
+  def tag_cloud
+    @tags = Professor.find(params[:professor_id]).tag_counts_on(:professor_ratings)
+    render :layout => false
+  end
   
   # PUT /professors/1
   # PUT /professors/1.xml

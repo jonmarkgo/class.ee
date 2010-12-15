@@ -12,6 +12,10 @@ $(document).ready(function() {
   var ratingComments = $("#professor_rating_comments");
   var ratingCourse = $("#professor_rating_course");
   var ratingPhoto = $("#professor_rating_photo");
+  var ratingRightBox = $("#home-add-rating-right");
+  var ratingSchool = $("#rating-school");
+  var ratingRightCourse = $("#rating-course");
+  var ratingTagCloud = $("#rating-tagcloud");
   
   readButton.click(function() {
     readButton.hide('blind','slow');
@@ -72,6 +76,7 @@ $(document).ready(function() {
     }
   });
  
+ 
   professorInput.autocomplete({
     source: "professors/school",
     minLength: 0,
@@ -83,7 +88,26 @@ $(document).ready(function() {
       ratingCourse.autocomplete("option","source", "professors/" + ui.item.value + "/courses/search");
       ratingCourse.autocomplete("enable");
       ratingPhoto.attr("src", "images/professors/" + ui.item.value + ".jpg");
-      ratingPhoto.show('blind','slow');
+      ratingRightCourse.html(ui.item.label);
+      ratingTagCloud.load("professors/" + ui.item.value + "/tags/cloud",null,function() {
+  $('#rating-tagcloud a').each(function(index, self) {
+    $(self).click(function() {
+      var el = "";
+      el  = "<li class=\"tagit-choice\">\n";
+      el += $(self).html() + "\n";
+      el += "<a class=\"close\">x</a>\n";
+      el += "<input type=\"hidden\" style=\"display:none;\" value=\""+$(self).html()+"\" name=\"item[tags][]\">\n";
+      el += "</li>\n";
+      if ($(".tagit-choice").length)
+        $(".tagit-choice").last().after(el);
+      else
+        ratingTags.prepend(el);
+      $(".tagit-input").val("");
+    });
+  });
+  });
+
+      ratingRightBox.show('blind','slow');
     }
   });
 
@@ -114,6 +138,7 @@ $(document).ready(function() {
       professorInput.show('blind','slow');
       professorInput.autocomplete("option","source", "professors/school/" + ui.item.value);
       professorInput.autocomplete("enable");
+      ratingSchool.html(ui.item.label);
       return false;
     }
   })

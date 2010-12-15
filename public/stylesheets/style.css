@@ -462,7 +462,7 @@ input[type=submit]:hover {
   width: 600px;
 }
 
-#home-find-rating, #home-add-rating, #professor_rating_photo {
+#home-find-rating, #home-add-rating, #home-add-rating-right {
   display: none;
 }
 
@@ -492,6 +492,11 @@ img.alignright { margin-left: 15px; }
 .thumbnail:hover { border: 2px solid #F83D87; }
 
 .hide { display: none; }
+
+.tag1 { font-size: 1.0em; }
+.tag2 { font-size: 1.2em; }
+.tag3 { font-size: 1.4em; }
+.tag4 { font-size: 1.6em; }
 
 /* Thumbnail rotation - Uncomment to use */
 
