@@ -8,15 +8,16 @@
 <div id="home-find-rating">
   Find a rating
 </div>
-
+<img src="#" alt="" id="professor_rating_photo" class="thumbnail alignright">
 <div id="home-add-rating">
   <input type="text" class="grid_7" id="school" value="Start typing your school's name..." />
   <input type="text" class="grid_7" id="professor" value="Start typing your professor's name..." />
   <input type="hidden" id="professor-id" />
   <%= form_tag new_professor_rating_path, :remote => true, :id => "rating-form" do -%>
     <%= text_area_tag "professor_rating_comments", "Comment on your professor...", :cols => 50, :rows => 10, :class => 'grid_6' %><br />
+    <%= text_field_tag "professor_rating_course", "What course are you rating them for?", :class => "grid_6" %>
     <ul id="professor_rating_tags" class="grid_6"></ul>
-    <%= submit_tag "Add Rating", :disable_with => "Classin' it up..." %>
+    <%= submit_tag "Add Rating", :disable_with => "Classin' it up...", :class=>"home-button" %>
   <% end -%>
 </div>
 

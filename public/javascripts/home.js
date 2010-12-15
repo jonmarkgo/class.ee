@@ -10,7 +10,9 @@ $(document).ready(function() {
   var ratingForm = $("#rating-form");
   var ratingTags = $("#professor_rating_tags");
   var ratingComments = $("#professor_rating_comments");
-
+  var ratingCourse = $("#professor_rating_course");
+  var ratingPhoto = $("#professor_rating_photo");
+  
   readButton.click(function() {
     readButton.hide('blind','slow');
     rateButton.hide('blind','slow');
@@ -20,6 +22,7 @@ $(document).ready(function() {
     readButton.hide('blind','slow');
     rateButton.hide('blind','slow');
     rateContainer.show('blind','slow');
+    schoolInput.autocomplete("enable");
   });
   
   ratingComments.focus(function() {
@@ -57,6 +60,17 @@ $(document).ready(function() {
       professorInput.val("Start typing your professor's name...");
     }
   });
+  ratingCourse.focus(function() {
+    if (ratingCourse.val() == "What course are you rating them for?") {
+      ratingCourse.val("");
+    }
+  });
+  
+  ratingCourse.blur(function() {
+    if (ratingCourse.val() == "") {
+      ratingCourse.val("What course are you rating them for?");
+    }
+  });
  
   professorInput.autocomplete({
     source: "professors/school",
@@ -66,16 +80,27 @@ $(document).ready(function() {
       professorInput.hide('blind','slow');
       professorID.val(ui.item.value);
       ratingForm.show('blind','slow');
-      //ratingTags.autocomplete("enable");
+      ratingCourse.autocomplete("option","source", "professors/" + ui.item.value + "/courses/search");
+      ratingCourse.autocomplete("enable");
+      ratingPhoto.attr("src", "images/professors/" + ui.item.value + ".jpg");
+      ratingPhoto.show('blind','slow');
     }
   });
+
+  ratingCourse.autocomplete({
+    source: "professors/course",
+    minLength: 0,
+    disabled: true
+  });
   
-ratingTags.tagit({
-      availableTags: "professors/tags/search"
-    });
+
+  ratingTags.tagit({
+    availableTags: "professors/tags/search"
+  });
     
   schoolInput.autocomplete({
     minLength: 0,
+    disabled: true,
     source: "schools/search",
     focus: function( event, ui ) {
       schoolInput.val( ui.item.label );

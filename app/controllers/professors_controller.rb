@@ -53,16 +53,27 @@ class ProfessorsController < ApplicationController
     end
   end
   
-  def school
+  def school_search
     @professor_name = '%' + params[:term] + '%'
-    #Refine this query a bit, its bulky
-    @professors = Professor.includes(:department => :school).find(:all, :conditions => ["schools.id = ? AND (firstname LIKE ? OR lastname LIKE ?)",params[:school_id],@professor_name,@professor_name])
+    #TODO: Refine this query a bit, its bulky
+    @professors = Professor.includes(:department).find(:all, :conditions => ["departments.school_id = ? AND (firstname LIKE ? OR lastname LIKE ?)",params[:school_id],@professor_name,@professor_name])
     @professor_array = []
     @professors.each do |professor|
       @professor_array << {"label" => professor.title + " " + professor.firstname + " " + professor.lastname, "value" => professor.id}
     end
     render :json => @professor_array
   end
+  
+  def course_search
+    @professor = Professor.find(params[:professor_id])
+    @course_name = '%' + params[:term] + '%'
+    @courses = @professor.courses #.find(:all, :conditions => ["courses.name LIKE ?", @course_name]) 
+    @course_array = []
+    @courses.each do |course|
+      @course_array << course.department.abbreviation + " #{course.number} - " + course.name
+    end
+    render :json => @course_array
+  end  
   
   def tag_search
     @tag_cloud = Professor.tag_counts_on(:professor_ratings)

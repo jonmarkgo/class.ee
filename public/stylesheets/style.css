@@ -442,8 +442,7 @@ input[type=submit]:hover {
 	background: #F71570;
 }
 
-.home-button,
-input[type=submit]  {
+.home-button  {
   background: #F83D87;
   color: #fff;
   padding: 30px;
@@ -454,8 +453,7 @@ input[type=submit]  {
   height: auto;
 }
 
-.home-button:hover,
-input[type=submit]:hover {
+.home-button:hover {
   background: #F71570;
 }
 
@@ -464,7 +462,7 @@ input[type=submit]:hover {
   width: 600px;
 }
 
-#home-find-rating, #home-add-rating {
+#home-find-rating, #home-add-rating, #professor_rating_photo {
   display: none;
 }
 
