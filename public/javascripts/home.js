@@ -5,18 +5,26 @@ $(document).ready(function() {
   var readContainer = $("#home-find-rating");
   var rateContainer = $("#home-add-rating");
   var schoolInput = $("#school");
-  var professorID = $("#professor-id");
+  var professorID = $("#rating_form_professor_id");
+  var courseID = $("#rating_form_course_id");
   var professorInput = $("#professor");
-  var ratingForm = $("#rating-form");
-  var ratingTags = $("#professor_rating_tags");
-  var ratingComments = $("#professor_rating_comments");
-  var ratingCourse = $("#professor_rating_course");
+  var ratingForm = $("#rating_form");
+  var ratingTags = $("#rating_form_tags");
+  var ratingComments = $("#rating_form_comments");
+  var ratingCourse = $("#auto_course");
   var ratingPhoto = $("#professor_rating_photo");
   var ratingRightBox = $("#home-add-rating-right");
   var ratingSchool = $("#rating-school");
-  var ratingRightCourse = $("#rating-course");
+  var ratingRightProfessor = $("#rating-right-professor");
   var ratingTagCloud = $("#rating-tagcloud");
-  
+ ratingForm.bind('ajax:error', function(xhr, status, error) {
+        var errortxt = $.parseJSON(status.responseText);
+        for(var key in errortxt){
+          $(".notice").append(key + " " + errortxt[key]);
+        }
+       
+        
+  });
   readButton.click(function() {
     readButton.hide('blind','slow');
     rateButton.hide('blind','slow');
@@ -88,7 +96,7 @@ $(document).ready(function() {
       ratingCourse.autocomplete("option","source", "professors/" + ui.item.value + "/courses/search");
       ratingCourse.autocomplete("enable");
       ratingPhoto.attr("src", "images/professors/" + ui.item.value + ".jpg");
-      ratingRightCourse.html(ui.item.label);
+      ratingRightProfessor.html(ui.item.label);
       ratingTagCloud.load("professors/" + ui.item.value + "/tags/cloud",null,function() {
   $('#rating-tagcloud a').each(function(index, self) {
     $(self).click(function() {
@@ -114,7 +122,12 @@ $(document).ready(function() {
   ratingCourse.autocomplete({
     source: "professors/course",
     minLength: 0,
-    disabled: true
+    disabled: true,
+    select: function( event, ui ) {
+      ratingCourse.val(ui.item.label);
+      courseID.val(ui.item.value);
+      return false;
+    }
   });
   
 

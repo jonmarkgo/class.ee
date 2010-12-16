@@ -70,7 +70,7 @@ class ProfessorsController < ApplicationController
     @courses = @professor.courses #.find(:all, :conditions => ["courses.name LIKE ?", @course_name]) 
     @course_array = []
     @courses.each do |course|
-      @course_array << course.department.abbreviation + " #{course.number} - " + course.name
+      @course_array << {"label" => course.department.abbreviation + " #{course.number} - " + course.name, "value" => course.id}
     end
     render :json => @course_array
   end  

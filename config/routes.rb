@@ -13,7 +13,6 @@ ClassEe::Application.routes.draw do
   
   resources :professor_ratings
   
-
   resources :departments
 
   resources :courses

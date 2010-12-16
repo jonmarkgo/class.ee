@@ -40,15 +40,19 @@ class ProfessorRatingsController < ApplicationController
   # POST /professor_ratings
   # POST /professor_ratings.xml
   def create
-    @professor_rating = ProfessorRating.new(params[:professor_rating])
-
+    @professor_rating = ProfessorRating.new(params[:rating_form])
+    if @professor_rating.professor and params[:item]
+      @professor_rating.tag(@professor_rating.professor, :with => params[:item][:tags].join(', '), :on => :professor_ratings)
+    end
+    #if @professor_rating.valid?
     respond_to do |format|
       if @professor_rating.save
         format.html { redirect_to(@professor_rating, :notice => 'Professor rating was successfully created.') }
         format.xml  { render :xml => @professor_rating, :status => :created, :location => @professor_rating }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @professor_rating.errors, :status => :unprocessable_entity }
+        #format.html { render :action => "new" }
+        format.json  { render :json => @professor_rating.errors, :status => :unprocessable_entity }
+        #format.js { render :action => 'rate_professor' }
       end
     end
   end
