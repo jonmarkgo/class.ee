@@ -91,7 +91,8 @@ a {
 }
 
 a:hover:not(.ui-state-hover),
-#menu .current a {
+#menu .current a,
+a.tag-link {
 	background: #F83D87;
 	color: #fff;
 	text-decoration: none;
@@ -502,6 +503,8 @@ img.alignright { margin-left: 15px; }
 .tag2 { font-size: 1.2em; }
 .tag3 { font-size: 1.4em; }
 .tag4 { font-size: 1.6em; }
+.tag5 { font-size: 1.8em; }
+.tag6 { font-size: 2.0em; }
 .notice { color: red; }
 .alert {color: yellow; }
 /* Thumbnail rotation - Uncomment to use */

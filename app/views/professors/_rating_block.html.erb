@@ -1,3 +1,11 @@
 <blockquote>
     <p><%= rating.comments %></p>
+    <p style="font-style: normal; font-weight: bold;">
+      <%= rating.course.department.abbreviation %> <%= rating.course.number %> - <%= rating.course.name %>
+    </p>
+    <p>
+      <% rating.owned_tags.each do |tag| %>
+        <a href="#" class="tag-link"><%= tag.name %></a>
+      <% end%>
+    </p>
 </blockquote>
