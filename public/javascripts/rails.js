@@ -131,8 +131,11 @@ jQuery(function ($) {
         disable_with_form_not_remote_selector = 'form:not([data-remote]):has(' + disable_with_input_selector + ')';
 
     var disable_with_input_function = function () {
+      console.log(this);
         $(this).find(disable_with_input_selector).each(function () {
+          console.log(this);
             var input = $(this);
+            console.log(input);
             input.data('enable-with', input.val())
                 .attr('value', input.attr('data-disable-with'))
                 .attr('disabled', 'disabled');

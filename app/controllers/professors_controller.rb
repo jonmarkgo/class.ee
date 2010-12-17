@@ -76,7 +76,7 @@ class ProfessorsController < ApplicationController
   end  
   
   def tag_search
-    @tag_cloud = Professor.tag_counts_on(:professor_ratings)
+    @tag_cloud = Professor.tag_counts_on(:tags)
     @tag_array = []
     regex = Regexp.new("^" + Regexp.escape(params[:term]) + "(.)")
     @tag_cloud.each do |tag|
@@ -88,8 +88,14 @@ class ProfessorsController < ApplicationController
   end
 
   def tag_cloud
-    @tags = Professor.find(params[:professor_id]).tag_counts_on(:professor_ratings)
+    @tags = Professor.find(params[:professor_id]).tag_counts_on(:tags)
     render :layout => false
+  end
+  
+  def ratings
+    @professor = Professor.includes(:professor_ratings).order("professor_ratings.created_at desc").find(params[:professor_id])
+    @ratings = @professor.professor_ratings
+    render :partial => "rating_block", :collection => @ratings, :as => :rating
   end
   
   # PUT /professors/1

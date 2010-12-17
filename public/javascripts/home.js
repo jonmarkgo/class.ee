@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  var readButton = $("#read-button");
-  var rateButton = $("#rate-button");
-  var homeButtonContainer = $("#home-buttons");
   var readContainer = $("#home-find-rating");
   var rateContainer = $("#home-add-rating");
   var schoolInput = $("#school");
@@ -17,26 +14,29 @@ $(document).ready(function() {
   var ratingSchool = $("#rating-school");
   var ratingRightProfessor = $("#rating-right-professor");
   var ratingTagCloud = $("#rating-tagcloud");
+  var ratingBox = $("#rating_box");
+  var pastRatings = $("#past_ratings");
  ratingForm.bind('ajax:error', function(xhr, status, error) {
         var errortxt = $.parseJSON(status.responseText);
+        $(".error").show("blind","fast");
         for(var key in errortxt){
-          $(".notice").append(key + " " + errortxt[key]);
+          $(".error").append(key + " " + errortxt[key]);
         }
        
         
   });
-  readButton.click(function() {
-    readButton.hide('blind','slow');
-    rateButton.hide('blind','slow');
-    readontainer.show('blind','slow');
+   ratingForm.bind('ajax:success', function(xhr, status, error) {
+     $(".error").html("");
+     $(".error").hide("blind","fast");
+     $(".success").html("Rating added, shazam!");
+     $(".success").show("blind","fast");
+     $(status).prependTo(pastRatings).effect("highlight",{}, 'slow');
+     $("#past_ratings:first-child").effect('highlight',null,'slow');
+     ratingComments.val("Comment on your professor...");
+     ratingCourse.val("What course are you rating them for?");
+     courseID.val("");
+     ratingTags.html('<li class="tagit-new"><input class="tagit-input ui-autocomplete-input" type="text" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" value="Tag your professor..."></li>');
   });
-  rateButton.click(function() {
-    readButton.hide('blind','slow');
-    rateButton.hide('blind','slow');
-    rateContainer.show('blind','slow');
-    schoolInput.autocomplete("enable");
-  });
-  
   ratingComments.focus(function() {
     if (ratingComments.val() == "Comment on your professor...") {
       ratingComments.val("");
@@ -90,9 +90,9 @@ $(document).ready(function() {
     minLength: 0,
     disabled: true,
     select: function( event, ui ) {
-      professorInput.hide('blind','slow');
+      professorInput.hide('blind','fast');
       professorID.val(ui.item.value);
-      ratingForm.show('blind','slow');
+      
       ratingCourse.autocomplete("option","source", "professors/" + ui.item.value + "/courses/search");
       ratingCourse.autocomplete("enable");
       ratingPhoto.attr("src", "images/professors/" + ui.item.value + ".jpg");
@@ -114,8 +114,9 @@ $(document).ready(function() {
     });
   });
   });
-
-      ratingRightBox.show('blind','slow');
+  pastRatings.load("professors/" + ui.item.value + "/ratings");
+ratingBox.show('blind','slow');
+pastRatings.show('blind','slow');
     }
   });
 
@@ -137,7 +138,6 @@ $(document).ready(function() {
     
   schoolInput.autocomplete({
     minLength: 0,
-    disabled: true,
     source: "schools/search",
     focus: function( event, ui ) {
       schoolInput.val( ui.item.label );

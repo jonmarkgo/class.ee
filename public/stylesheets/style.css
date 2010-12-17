@@ -38,8 +38,8 @@
 
 @font-face {
 	font-family: 'ChunkFive Regular';
-	src: url('fonts/Chunkfive.eot');
-	src: local('ChunkFive Regular'), local('ChunkFive'), url('fonts/Chunkfive.woff') format('woff'), url('fonts/Chunkfive.svg#ChunkFive') format('svg'), url('fonts/Chunkfive.otf') format('opentype');
+	src: url('../fonts/Chunkfive.eot');
+	src: local('ChunkFive Regular'), local('ChunkFive'), url('../fonts/Chunkfive.woff') format('woff'), url('../fonts/Chunkfive.svg#ChunkFive') format('svg'), url('../fonts/Chunkfive.otf') format('opentype');
 }
 
 /* Reset.css */
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: normal; }
 /* End reset */
 
 body { 
-	background: #eee url(images/bg.png) repeat;
+	background: #eee url(../images/bg.png) repeat;
 	color: #333333;
 	font: 14px/24px Georgia, 'Times New Roman', Times, serif;
 }
@@ -146,7 +146,7 @@ pre code { background: none; }
 code { background: #cfcfcf; font-size: 12px; }
 
 blockquote {
-	background: url(images/quote.png) no-repeat 5px top;
+	background: url(../images/quote.png) no-repeat 5px top;
 	border-left: 4px solid #F83D87;
 	border-bottom: 1px solid #F83D87;
 	color: #424242;
@@ -191,7 +191,7 @@ blockquote p { margin: 0; }
 
 /* Content */
 #content { 
-	background: url(images/content_bg.png) repeat; /* Fallback for browser that doesn't support rgba */
+	background: url(../images/content_bg.png) repeat; /* Fallback for browser that doesn't support rgba */
 	background: rgba(204, 204, 204, .4);
 	border: 1px solid #ccc;
 	border-left: none; border-right: none;
@@ -405,19 +405,21 @@ input:invalid {
 
 
 .success {
-	background: #e7f7d3 url(images/accepted.png) no-repeat 10px center;
-	background: rgba(231, 247, 211, 0.4) url(images/accepted.png) no-repeat 10px center;
+	background: #e7f7d3 url(../images/accepted.png) no-repeat 10px center;
+	background: rgba(231, 247, 211, 0.4) url(../images/accepted.png) no-repeat 10px center;
 	border: 1px solid #6c3;
 	padding: 20px 0 20px 80px;
+	display: none;
 }
 
 .error {
-	background: #ffebe8 url(images/cancel.png) no-repeat 10px center;
-	background: rgba(255,235,232,0.4) url(images/cancel.png) no-repeat 10px center;
+	background: #ffebe8 url(../images/cancel.png) no-repeat 10px center;
+	background: rgba(255,235,232,0.4) url(../images/cancel.png) no-repeat 10px center;
 	border: 1px solid #C00;
 	color: #C00;
 	line-height: 30px;
 	padding: 10px 0 10px 80px;
+	display: none;
 }
 
 /* Misc */
@@ -462,8 +464,12 @@ input[type=submit]:hover {
   width: 600px;
 }
 
-#home-find-rating, #home-add-rating, #home-add-rating-right,
-#professor, #rating_form {
+#professor, #rating_box {
+  display: none;
+}
+
+#past_ratings {
+  clear: both;
   display: none;
 }
 
