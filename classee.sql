@@ -110,7 +110,7 @@ CREATE TABLE `professor_ratings` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE `professor_ratings` (
 
 LOCK TABLES `professor_ratings` WRITE;
 /*!40000 ALTER TABLE `professor_ratings` DISABLE KEYS */;
-INSERT INTO `professor_ratings` VALUES (1,'Great professor, blah blah blah.',1,1,NULL,NULL),(2,'Blah blah blah rating2',1,1,'2010-12-12 18:53:59','2010-12-12 18:53:59');
+INSERT INTO `professor_ratings` VALUES (15,'She is a cool professor or something.',1,1,'2010-12-17 21:28:39','2010-12-17 21:28:39'),(16,'blah blah blah',1,1,'2010-12-17 21:44:21','2010-12-17 21:44:21'),(17,'Meheheheheh',1,1,'2010-12-17 21:49:11','2010-12-17 21:49:11'),(18,'Meheheheheh',1,1,'2010-12-17 21:50:49','2010-12-17 21:50:49'),(19,'Meheheheheh',1,1,'2010-12-17 21:51:03','2010-12-17 21:51:03'),(20,'Meheheheheh',1,1,'2010-12-17 21:53:15','2010-12-17 21:53:15'),(21,'Meheheheheh',1,1,'2010-12-17 21:54:17','2010-12-17 21:54:17'),(22,'Meheheheheh',1,1,'2010-12-17 21:55:01','2010-12-17 21:55:01'),(23,'Meheheheheh',1,1,'2010-12-17 21:58:30','2010-12-17 21:58:30'),(24,'Meheheheheh',1,1,'2010-12-17 21:59:09','2010-12-17 21:59:09'),(25,'Meheheheheh',1,1,'2010-12-17 21:59:23','2010-12-17 21:59:23'),(26,'Meheheheheh',1,1,'2010-12-17 21:59:36','2010-12-17 21:59:36'),(27,'FHfdhsfhdshfdshf',1,1,'2010-12-17 22:00:43','2010-12-17 22:00:43'),(28,'FHfdhsfhdshfdshf',1,1,'2010-12-17 22:02:05','2010-12-17 22:02:05'),(29,'FHfdhsfhdshfdshf',1,1,'2010-12-17 22:02:14','2010-12-17 22:02:14'),(30,'FHfdhsfhdshfdshf',1,1,'2010-12-17 22:03:11','2010-12-17 22:03:11'),(31,'FHfdhsfhdshfdshf',1,1,'2010-12-17 22:03:15','2010-12-17 22:03:15'),(32,'hfdsihfjdshjf',1,1,'2010-12-17 22:09:39','2010-12-17 22:09:39'),(33,'fdsafdsafds',1,1,'2010-12-17 22:10:39','2010-12-17 22:10:39'),(34,'sadsadsadsad',1,1,'2010-12-17 22:12:56','2010-12-17 22:12:56'),(35,'dadsadsad',1,1,'2010-12-17 22:13:33','2010-12-17 22:13:33'),(36,'Comment on your professor...',1,1,'2010-12-17 22:15:11','2010-12-17 22:15:11'),(37,'fdfdsf',1,1,'2010-12-17 22:16:42','2010-12-17 22:16:42'),(38,'dsadsadsad',1,1,'2010-12-17 22:19:52','2010-12-17 22:19:52'),(39,'fdsfdsfdsf',1,1,'2010-12-17 22:31:30','2010-12-17 22:31:30'),(40,'ewewqe',1,1,'2010-12-17 23:02:20','2010-12-17 23:02:20');
 /*!40000 ALTER TABLE `professor_ratings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,7 +250,7 @@ CREATE TABLE `taggings` (
   PRIMARY KEY (`id`),
   KEY `index_taggings_on_tag_id` (`tag_id`),
   KEY `index_taggings_on_taggable_id_and_taggable_type_and_context` (`taggable_id`,`taggable_type`,`context`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -259,7 +259,7 @@ CREATE TABLE `taggings` (
 
 LOCK TABLES `taggings` WRITE;
 /*!40000 ALTER TABLE `taggings` DISABLE KEYS */;
-INSERT INTO `taggings` VALUES (10,9,1,'Professor',1,'ProfessorRating','professor_ratings','2010-12-12 20:24:03'),(11,10,1,'Professor',1,'ProfessorRating','professor_ratings','2010-12-12 20:24:03'),(12,9,1,'Professor',2,'ProfessorRating','professor_ratings','2010-12-12 20:24:29'),(13,11,1,'Professor',2,'ProfessorRating','professor_ratings','2010-12-12 20:24:29');
+INSERT INTO `taggings` VALUES (21,15,1,'Professor',15,'ProfessorRating','tags','2010-12-17 21:28:39'),(22,16,1,'Professor',15,'ProfessorRating','tags','2010-12-17 21:28:39'),(23,17,1,'Professor',15,'ProfessorRating','tags','2010-12-17 21:28:39'),(24,15,1,'Professor',16,'ProfessorRating','tags','2010-12-17 21:44:21'),(25,18,1,'Professor',16,'ProfessorRating','tags','2010-12-17 21:44:21'),(26,19,1,'Professor',16,'ProfessorRating','tags','2010-12-17 21:44:21'),(27,15,1,'Professor',17,'ProfessorRating','tags','2010-12-17 21:49:11'),(28,20,1,'Professor',17,'ProfessorRating','tags','2010-12-17 21:49:11'),(29,15,1,'Professor',18,'ProfessorRating','tags','2010-12-17 21:50:49'),(30,20,1,'Professor',18,'ProfessorRating','tags','2010-12-17 21:50:49'),(31,15,1,'Professor',19,'ProfessorRating','tags','2010-12-17 21:51:03'),(32,20,1,'Professor',19,'ProfessorRating','tags','2010-12-17 21:51:03'),(33,15,1,'Professor',20,'ProfessorRating','tags','2010-12-17 21:53:15'),(34,20,1,'Professor',20,'ProfessorRating','tags','2010-12-17 21:53:15'),(35,15,1,'Professor',21,'ProfessorRating','tags','2010-12-17 21:54:17'),(36,20,1,'Professor',21,'ProfessorRating','tags','2010-12-17 21:54:17'),(37,15,1,'Professor',22,'ProfessorRating','tags','2010-12-17 21:55:01'),(38,20,1,'Professor',22,'ProfessorRating','tags','2010-12-17 21:55:01'),(39,15,1,'Professor',23,'ProfessorRating','tags','2010-12-17 21:58:30'),(40,20,1,'Professor',23,'ProfessorRating','tags','2010-12-17 21:58:30'),(41,15,1,'Professor',24,'ProfessorRating','tags','2010-12-17 21:59:09'),(42,20,1,'Professor',24,'ProfessorRating','tags','2010-12-17 21:59:09'),(43,15,1,'Professor',25,'ProfessorRating','tags','2010-12-17 21:59:23'),(44,20,1,'Professor',25,'ProfessorRating','tags','2010-12-17 21:59:23'),(45,15,1,'Professor',26,'ProfessorRating','tags','2010-12-17 21:59:36'),(46,20,1,'Professor',26,'ProfessorRating','tags','2010-12-17 21:59:36'),(47,15,1,'Professor',27,'ProfessorRating','tags','2010-12-17 22:00:43'),(48,17,1,'Professor',27,'ProfessorRating','tags','2010-12-17 22:00:43'),(49,18,1,'Professor',27,'ProfessorRating','tags','2010-12-17 22:00:43'),(50,21,1,'Professor',27,'ProfessorRating','tags','2010-12-17 22:00:44'),(51,15,1,'Professor',28,'ProfessorRating','tags','2010-12-17 22:02:05'),(52,17,1,'Professor',28,'ProfessorRating','tags','2010-12-17 22:02:05'),(53,18,1,'Professor',28,'ProfessorRating','tags','2010-12-17 22:02:05'),(54,21,1,'Professor',28,'ProfessorRating','tags','2010-12-17 22:02:05'),(55,15,1,'Professor',29,'ProfessorRating','tags','2010-12-17 22:02:14'),(56,17,1,'Professor',29,'ProfessorRating','tags','2010-12-17 22:02:14'),(57,18,1,'Professor',29,'ProfessorRating','tags','2010-12-17 22:02:14'),(58,21,1,'Professor',29,'ProfessorRating','tags','2010-12-17 22:02:14'),(59,15,1,'Professor',30,'ProfessorRating','tags','2010-12-17 22:03:11'),(60,17,1,'Professor',30,'ProfessorRating','tags','2010-12-17 22:03:11'),(61,18,1,'Professor',30,'ProfessorRating','tags','2010-12-17 22:03:11'),(62,21,1,'Professor',30,'ProfessorRating','tags','2010-12-17 22:03:11'),(63,15,1,'Professor',31,'ProfessorRating','tags','2010-12-17 22:03:15'),(64,17,1,'Professor',31,'ProfessorRating','tags','2010-12-17 22:03:15'),(65,18,1,'Professor',31,'ProfessorRating','tags','2010-12-17 22:03:15'),(66,21,1,'Professor',31,'ProfessorRating','tags','2010-12-17 22:03:15'),(67,15,1,'Professor',32,'ProfessorRating','tags','2010-12-17 22:09:39'),(68,16,1,'Professor',32,'ProfessorRating','tags','2010-12-17 22:09:39'),(69,17,1,'Professor',32,'ProfessorRating','tags','2010-12-17 22:09:39'),(70,15,1,'Professor',33,'ProfessorRating','tags','2010-12-17 22:10:39'),(71,17,1,'Professor',33,'ProfessorRating','tags','2010-12-17 22:10:39'),(72,18,1,'Professor',33,'ProfessorRating','tags','2010-12-17 22:10:39'),(73,15,1,'Professor',34,'ProfessorRating','tags','2010-12-17 22:12:56'),(74,22,1,'Professor',34,'ProfessorRating','tags','2010-12-17 22:12:56'),(75,17,1,'Professor',35,'ProfessorRating','tags','2010-12-17 22:13:33'),(76,20,1,'Professor',35,'ProfessorRating','tags','2010-12-17 22:13:33'),(77,15,1,'Professor',37,'ProfessorRating','tags','2010-12-17 22:16:42'),(78,16,1,'Professor',37,'ProfessorRating','tags','2010-12-17 22:16:42'),(79,15,1,'Professor',38,'ProfessorRating','tags','2010-12-17 22:19:52'),(80,18,1,'Professor',38,'ProfessorRating','tags','2010-12-17 22:19:52'),(81,15,1,'Professor',39,'ProfessorRating','tags','2010-12-17 22:31:30'),(82,17,1,'Professor',39,'ProfessorRating','tags','2010-12-17 22:31:30'),(83,19,1,'Professor',39,'ProfessorRating','tags','2010-12-17 22:31:30'),(84,15,1,'Professor',40,'ProfessorRating','tags','2010-12-17 23:02:20'),(85,22,1,'Professor',40,'ProfessorRating','tags','2010-12-17 23:02:20');
 /*!40000 ALTER TABLE `taggings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,7 +274,7 @@ CREATE TABLE `tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -283,7 +283,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (9,'easy'),(10,'crazy'),(11,'nice');
+INSERT INTO `tags` VALUES (15,'easy'),(16,'fun'),(17,'smart'),(18,'cool'),(19,'hard tests'),(20,'smelly'),(21,'moo'),(22,'meh');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,4 +337,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-15 12:35:34
+-- Dump completed on 2010-12-17 15:05:17

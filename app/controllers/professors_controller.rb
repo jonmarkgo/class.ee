@@ -93,7 +93,7 @@ class ProfessorsController < ApplicationController
   end
   
   def ratings
-    @professor = Professor.includes(:professor_ratings).order("professor_ratings.created_at desc").find(params[:professor_id])
+    @professor = Professor.includes(:professor_ratings).order("(upvotes - downvotes) desc, professor_ratings.created_at desc").find(params[:professor_id])
     @ratings = @professor.professor_ratings
     render :partial => "rating_block", :collection => @ratings, :as => :rating
   end

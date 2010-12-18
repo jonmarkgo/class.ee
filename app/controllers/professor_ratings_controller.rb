@@ -37,6 +37,26 @@ class ProfessorRatingsController < ApplicationController
     @professor_rating = ProfessorRating.find(params[:id])
   end
 
+  def upvote
+    @professor_rating = ProfessorRating.find(params[:rating_id])
+    @professor_rating.upvotes += 1
+    if @professor_rating.save
+      render :json => @professor_rating
+    else
+      render :json => @professor_rating.errors, :status => :unprocessable_entity
+    end
+  end
+  
+  def downvote
+    @professor_rating = ProfessorRating.find(params[:rating_id])
+    @professor_rating.downvotes += 1
+    if @professor_rating.save
+      render :json => @professor_rating
+    else
+      render :json => @professor_rating.errors, :status => :unprocessable_entity
+    end
+  end
+
   # POST /professor_ratings
   # POST /professor_ratings.xml
   def create
