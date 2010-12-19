@@ -1,6 +1,8 @@
 <div class="rating-block" upvotes="<%= rating.upvotes %>" downvotes="<%= rating.downvotes %>">
-<button class="upvote" rating-up="<%= rating.id %>"><%= rating.upvotes %> +</button>
-<button class="downvote" rating-down="<%= rating.id %>"><%= rating.downvotes %> -</button>
+<div class="votebuttons">
+<input type="radio" name="votebutton<%= rating.id %>" id="upvote<%= rating.id %>" rating-up="<%= rating.id %>" /><label for="upvote<%= rating.id %>"><%= rating.upvotes %> +</label>
+<input type="radio" name="votebutton<%= rating.id %>" id="downvote<%= rating.id %>"  rating-down="<%= rating.id %>" /><label for="downvote<%= rating.id %>"><%= rating.downvotes %> -</label>
+</div>
 <blockquote>
     <p><%= rating.comments %></p>
     <p style="font-style: normal; font-weight: bold;">
