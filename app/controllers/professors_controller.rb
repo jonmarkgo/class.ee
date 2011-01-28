@@ -54,9 +54,7 @@ class ProfessorsController < ApplicationController
   end
   
   def school_search
-    @professor_name = '%' + params[:term] + '%'
-    #TODO: Refine this query a bit, its bulky
-    @professors = Professor.includes(:department).find(:all, :conditions => ["departments.school_id = ? AND (firstname LIKE ? OR lastname LIKE ?)",params[:school_id],@professor_name,@professor_name])
+    @professors = Professor.includes(:department).find(:all, :conditions => ["departments.school_id = ?",params[:school_id]])
     @professor_array = []
     @professors.each do |professor|
       @professor_array << {"label" => professor.title + " " + professor.firstname + " " + professor.lastname, "value" => professor.id}

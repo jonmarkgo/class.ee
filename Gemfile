@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem "oauth2"
 gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
+gem 'devise-twitter'
 # Use unicorn as the web server
 # gem 'unicorn'
 

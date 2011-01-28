@@ -45,6 +45,9 @@ GEM
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
+    devise-twitter (0.1.1)
+      devise (>= 1.1.0)
+      warden_oauth (~> 0.1.1)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faraday (0.5.3)
@@ -65,6 +68,7 @@ GEM
     multi_json (0.0.5)
     multipart-post (1.0.1)
     mysql2 (0.2.6)
+    oauth (0.4.4)
     oauth2 (0.1.0)
       faraday (~> 0.5.0)
       multi_json (~> 0.0.4)
@@ -94,6 +98,9 @@ GEM
     tzinfo (0.3.23)
     warden (1.0.3)
       rack (>= 1.0.0)
+    warden_oauth (0.1.1)
+      oauth
+      warden (>= 0.8.1)
 
 PLATFORMS
   ruby
@@ -101,6 +108,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   devise
+  devise-twitter
   devise_oauth2_authenticatable!
   jquery-rails
   mysql2

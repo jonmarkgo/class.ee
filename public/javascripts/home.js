@@ -18,8 +18,8 @@ function resortRatings(rating)
 function setupButtons()
 {
 
-  $("button").button();
-  $("button").click(function ()
+  $(".votebuttons").buttonset();
+  $(".votebuttons input").click(function ()
   {
     var self = $(this);
     if (self.attr('rating-up'))
