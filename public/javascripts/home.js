@@ -98,6 +98,12 @@ $(document).ready(function ()
     ratingTags.html('<li class="tagit-new"><input class="tagit-input ui-autocomplete-input" type="text" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" value="Tag your professor..."></li>');
     setupButtons();
   });
+
+  if ($.cookie("classee_school")) {
+    schoolInput.hide();
+    professorInput.show();
+  }
+
   ratingComments.focus(function ()
   {
     if (ratingComments.val() == "Comment on your professor...")
@@ -164,9 +170,9 @@ $(document).ready(function ()
 
   professorInput.autocomplete(
   {
-    source: "professors/school",
+    source: "professors/school/" + $.cookie("classee_school"),
     minLength: 0,
-    disabled: true,
+  //  disabled: true,
     select: function (event, ui)
     {
       professorInput.hide('blind', 'fast');
@@ -242,6 +248,7 @@ $(document).ready(function ()
       professorInput.autocomplete("option", "source", "professors/school/" + ui.item.value);
       professorInput.autocomplete("enable");
       ratingSchool.html(ui.item.label);
+      $.cookie("classee_school",ui.item.value);
       return false;
     }
   }).data("autocomplete")._renderItem = function (ul, item)
