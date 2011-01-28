@@ -2,3 +2,6 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+l.project
+sublime.sublime-project
+tmp/restart.txt
