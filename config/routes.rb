@@ -1,7 +1,7 @@
 ClassEe::Application.routes.draw do
-  devise_for :users do
-    match '/users/sign_in/twitter' => Devise::Twitter::Rack::Signin
-    match '/users/connect/twitter' => Devise::Twitter::Rack::Connect
+  devise_for :user do
+    match '/user/sign_in/twitter' => Devise::Twitter::Rack::Signin
+    match '/user/connect/twitter' => Devise::Twitter::Rack::Connect
   end
 
   resources :states
