@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :omniauthable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :omniauthable, :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :school, :password, :password_confirmation, :remember_me
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   if user = User.find_by_email(data["email"])
     user
   else # Create an user with a stub password. 
-    User.create!(:email => data["email"]) 
+    User.create!(:email => data["email"], :password => Devise.friendly_token[0,20])
   end
 end 
 end
