@@ -5,3 +5,4 @@ tmp/**/*
 l.project
 sublime.sublime-project
 tmp/restart.txt
+.project

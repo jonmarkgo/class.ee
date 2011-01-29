@@ -5,7 +5,7 @@
 			"file": "/Z/public/javascripts/home.js",
 			"settings":
 			{
-				"buffer_size": 7242,
+				"buffer_size": 7416,
 				"line_ending": "Windows"
 			}
 		},
@@ -22,6 +22,14 @@
 			"settings":
 			{
 				"buffer_size": 2402,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/app/controllers/courses_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1961,
 				"line_ending": "Unix"
 			}
 		},
@@ -45,7 +53,7 @@
 			"file": "/Z/config/routes.rb",
 			"settings":
 			{
-				"buffer_size": 2530,
+				"buffer_size": 2673,
 				"line_ending": "Unix"
 			}
 		},
@@ -58,6 +66,7 @@
 			}
 		},
 		{
+			"contents": "class ProfessorRatingsController < ApplicationController\n  #before_filter :authenticate_user!\n  # GET /professor_ratings\n  # GET /professor_ratings.xml\n  def index\n    @professor_ratings = ProfessorRating.all\n    respond_to do |format|\n      format.html # index.html.erb\n      format.xml  { render :xml => @professor_ratings }\n    end\n  end\n\n  # GET /professor_ratings/1\n  # GET /professor_ratings/1.xml\n  def show\n    @professor_rating = ProfessorRating.find(params[:id])\n    #@tags = ProfessorRating.tag_counts_on(:tags)\n    respond_to do |format|\n      format.html # show.html.erb\n      format.xml  { render :xml => @professor_rating }\n    end\n  end\n\n  # GET /professor_ratings/new\n  # GET /professor_ratings/new.xml\n  def new\n    @professor_rating = ProfessorRating.new\n\n    respond_to do |format|\n      format.html # new.html.erb\n      format.xml  { render :xml => @professor_rating }\n    end\n  end\n\n  # GET /professor_ratings/1/edit\n  def edit\n    @professor_rating = ProfessorRating.find(params[:id])\n  end\n\n  def upvote\n    @professor_rating = ProfessorRating.find(params[:rating_id])\n    @professor_rating.upvotes += 1\n    if @professor_rating.save\n      render :json => @professor_rating\n    else\n      render :json => @professor_rating.errors, :status => :unprocessable_entity\n    end\n  end\n  \n  def downvote\n    @professor_rating = ProfessorRating.find(params[:rating_id])\n    @professor_rating.downvotes += 1\n    if @professor_rating.save\n      render :json => @professor_rating\n    else\n      render :json => @professor_rating.errors, :status => :unprocessable_entity\n    end\n  end\n\n  # POST /professor_ratings\n  # POST /professor_ratings.xml\n  def create\n    @professor_rating = ProfessorRating.new(params[:rating_form])\n    if @professor_rating.professor and params[:item]\n      @professor_rating.tag(@professor_rating.professor, :with => params[:item][:tags].join(', '), :on => :tags)\n    end\n    #if @professor_rating.valid?\n    respond_to do |format|\n      if @professor_rating.save\n       format.html { render :partial => \"professors/rating_block\", :layout => false, :object => @professor_rating, :as => :rating }\n      # format.html { redirect_to(@professor_rating, :notice => 'Professor rating was successfully created.') }\n       format.xml  { render :xml => @professor_rating, :status => :created, :location => @professor_rating }\n      else\n        #format.html { render :action => \"new\" }\n        format.json  { render :json => @professor_rating.errors, :status => :unprocessable_entity }\n        #format.js { render :action => 'rate_professor' }\n      end\n    end\n  end\n\n  # PUT /professor_ratings/1\n  # PUT /professor_ratings/1.xml\n  def update\n    @professor_rating = ProfessorRating.find(params[:id])\n\n    respond_to do |format|\n      if @professor_rating.update_attributes(params[:professor_rating])\n        @professor_rating.tag(@professor_rating.professor, :with => params[:professor][:tag_list], :on => :professor_ratings)\n        format.html { redirect_to(@professor_rating, :notice => 'Professor rating was successfully updated.') }\n        format.xml  { head :ok }\n      else\n        format.html { render :action => \"edit\" }\n        format.xml  { render :xml => @professor_rating.errors, :status => :unprocessable_entity }\n      end\n    end\n  end\n\n  # DELETE /professor_ratings/1\n  # DELETE /professor_ratings/1.xml\n  def destroy\n    @professor_rating = ProfessorRating.find(params[:id])\n    @professor_rating.destroy\n\n    respond_to do |format|\n      format.html { redirect_to(professor_ratings_url) }\n      format.xml  { head :ok }\n    end\n  end\nend\n",
 			"file": "/Z/app/controllers/professor_ratings_controller.rb",
 			"settings":
 			{
@@ -77,7 +86,7 @@
 			"file": "/Z/config/application.rb",
 			"settings":
 			{
-				"buffer_size": 1998,
+				"buffer_size": 2049,
 				"line_ending": "Unix"
 			}
 		},
@@ -93,7 +102,95 @@
 			"file": "/Z/Gemfile",
 			"settings":
 			{
-				"buffer_size": 892,
+				"buffer_size": 913,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/app/helpers/professors_helper.rb",
+			"settings":
+			{
+				"buffer_size": 67,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/config/initializers/devise.rb",
+			"settings":
+			{
+				"buffer_size": 6549,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/config/initializers/devise_twitter.rb",
+			"settings":
+			{
+				"buffer_size": 183,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/app/views/classee/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 1145,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Z/app/views/layouts/classee.html.erb",
+			"settings":
+			{
+				"buffer_size": 1543,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/public/javascripts/jquery.cookie.js",
+			"settings":
+			{
+				"buffer_size": 4246,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Z/public/javascripts/jquery.min.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Z/app/models/user.rb",
+			"settings":
+			{
+				"buffer_size": 929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/app/views/users/unlocks/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 371,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/app/controllers/classee_controller.rb",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Z/app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 2795,
 				"line_ending": "Unix"
 			}
 		}
@@ -101,6 +198,7 @@
 	"build_system": "",
 	"file_history":
 	[
+		"/Z/app/models/user.rb",
 		"/Z/app/views/classee/index.html.erb"
 	],
 	"find_in_files":
@@ -119,6 +217,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"find",
 			"like",
 			"/school",
 			"source"
@@ -149,7 +248,7 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 23,
 			"sheets":
 			[
 				{
@@ -157,15 +256,15 @@
 					"file": "/Z/public/javascripts/home.js",
 					"settings":
 					{
-						"buffer_size": 7242,
+						"buffer_size": 7416,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4891,
-								4891
+								0,
+								0
 							]
 						],
 						"settings":
@@ -218,8 +317,8 @@
 						"selection":
 						[
 							[
-								621,
-								621
+								0,
+								0
 							]
 						],
 						"settings":
@@ -236,6 +335,34 @@
 				},
 				{
 					"buffer": 3,
+					"file": "/Z/app/controllers/courses_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1961,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "/Z/app/controllers/departments_controller.rb",
 					"settings":
 					{
@@ -246,8 +373,8 @@
 						"selection":
 						[
 							[
-								363,
-								363
+								0,
+								0
 							]
 						],
 						"settings":
@@ -263,7 +390,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "/Z/app/controllers/professors_controller.rb",
 					"settings":
 					{
@@ -274,8 +401,8 @@
 						"selection":
 						[
 							[
-								1853,
-								1853
+								0,
+								0
 							]
 						],
 						"settings":
@@ -291,11 +418,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "/Z/config/routes.rb",
 					"settings":
 					{
-						"buffer_size": 2530,
+						"buffer_size": 2673,
 						"regions":
 						{
 						},
@@ -319,7 +446,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "/Z/app/controllers/states_controller.rb",
 					"settings":
 					{
@@ -330,8 +457,8 @@
 						"selection":
 						[
 							[
-								411,
-								411
+								0,
+								0
 							]
 						],
 						"settings":
@@ -347,7 +474,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "/Z/app/controllers/professor_ratings_controller.rb",
 					"settings":
 					{
@@ -358,8 +485,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								653,
+								653
 							]
 						],
 						"settings":
@@ -375,7 +502,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "/Z/config/environment.rb",
 					"settings":
 					{
@@ -401,11 +528,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "/Z/config/application.rb",
 					"settings":
 					{
-						"buffer_size": 1998,
+						"buffer_size": 2049,
 						"regions":
 						{
 						},
@@ -422,14 +549,14 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0,
+						"translation.x": 32,
 						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "/Z/Rakefile",
 					"settings":
 					{
@@ -455,11 +582,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "/Z/Gemfile",
 					"settings":
 					{
-						"buffer_size": 892,
+						"buffer_size": 913,
 						"regions":
 						{
 						},
@@ -476,6 +603,304 @@
 						},
 						"translation.x": 0,
 						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/Z/app/helpers/professors_helper.rb",
+					"settings":
+					{
+						"buffer_size": 67,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/Z/config/initializers/devise.rb",
+					"settings":
+					{
+						"buffer_size": 6549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 336,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/Z/config/initializers/devise_twitter.rb",
+					"settings":
+					{
+						"buffer_size": 183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/Z/app/views/classee/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 1145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/Z/app/views/layouts/classee.html.erb",
+					"settings":
+					{
+						"buffer_size": 1543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/Z/public/javascripts/jquery.cookie.js",
+					"settings":
+					{
+						"buffer_size": 4246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/Z/public/javascripts/jquery.min.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "/Z/app/models/user.rb",
+					"settings":
+					{
+						"buffer_size": 929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "/Z/app/views/users/unlocks/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "/Z/app/controllers/classee_controller.rb",
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "/Z/app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 2795,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								893,
+								893
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 768,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -511,6 +936,14 @@
 		"height": 0,
 		"selected_items":
 		[
+			[
+				"route",
+				"routes.rb"
+			],
+			[
+				"professor",
+				"helpers/professors_helper.rb"
+			]
 		],
 		"width": 0
 	},
