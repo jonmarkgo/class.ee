@@ -25,8 +25,12 @@
   <div id="wrapper" class="container_12">
     <header id="header" class="grid_12">
       <h1><%= link_to "class.ee", root_path, :class => "title" %>
+        <% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path %>
+         <% else %>
         <%= link_to_oauth2 "Sign In with Facebook", :id => "facebook_login" %>
               <%= link_to "Sign in with Twitter", "user/sign_in/twitter", :id => "twitter_signin" %>
+              <% end %>
      </h1>
 
     </header> <!-- end header -->
