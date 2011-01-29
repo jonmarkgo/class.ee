@@ -507,7 +507,11 @@ img.alignright { margin-left: 15px; }
 .tag6 { font-size: 2.0em; }
 .notice { color: red; }
 .alert {color: yellow; }
-
+#header h1 a {
+  float: left;
+  margin-top: 65px;
+  padding: 20px 2px;
+}
 #facebook_login {
   background:url('../images/fb_login_button.png') transparent no-repeat center center;
   width: 154px;
