@@ -24,7 +24,11 @@
 <body>
   <div id="wrapper" class="container_12">
     <header id="header" class="grid_12">
-      <h1><%= link_to "class.ee", root_path %></h1>
+      <h1><%= link_to "class.ee", root_path, :class => "title" %>
+        <%= link_to_oauth2 "Sign In with Facebook", :id => "facebook_login" %>
+              <%= link_to "Sign in with Twitter", "user/sign_in/twitter", :id => "twitter_signin" %>
+     </h1>
+
     </header> <!-- end header -->
   
     <div id="content">
@@ -37,12 +41,14 @@
         <p class="alert"><%= alert %></p>
         <%= yield %>
       </div> <!-- end main -->
-
+    <div id="login-dialog"><iframe id="modalIframeId" width="100%" height="100%"
+    marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto"
+    title="Dialog Title">Your browser does not support frames.</iframe></div>
     </div> <!-- end content -->
     
     <footer id="footer" class="grid_12">
         <!-- You're free to remove the credit link in the footer, but please, please leave it there. -->
-        <p>Copyright &copy; 2010 <a href="#">class.ee</a></p>
+        <p>Copyright &copy; 2011 <a href="#">class.ee</a></p>
     </footer> <!-- end footer -->
     
     <div class="clear"></div>

@@ -71,8 +71,18 @@ $(document).ready(function ()
   var ratingTagCloud = $("#rating-tagcloud");
   var ratingBox = $("#rating_box");
   var pastRatings = $("#past_ratings");
-
-
+  var facebookLogin = $("#facebook_login");
+      $( "#login-dialog" ).dialog({
+      autoOpen: false,
+      modal: true,
+      draggable: false,
+      resizable: false
+    });
+  facebookLogin.click(function() {
+    $("#modalIframeId").attr('src','user/sign_in/facebook');
+$("#login-dialog").dialog('open');
+  });
+  
   ratingForm.bind('ajax:error', function (xhr, status, error)
   {
     var errortxt = $.parseJSON(status.responseText);

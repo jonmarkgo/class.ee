@@ -168,7 +168,7 @@ blockquote p { margin: 0; }
 	height: 115px;
 }
 
-#header h1 a {
+#header h1 a.title {
 	color: #1e1e1e;
 	font-size: 76px;
 	font-weight: bold;
@@ -182,7 +182,7 @@ blockquote p { margin: 0; }
 	transition: all 0.15s linear;
 }
 
-#header h1 a:hover {
+#header h1 a.title:hover {
 	background: none;
 	text-decoration: none; 
 	-webkit-transform: scale(1.1);
@@ -507,6 +507,27 @@ img.alignright { margin-left: 15px; }
 .tag6 { font-size: 2.0em; }
 .notice { color: red; }
 .alert {color: yellow; }
+
+#facebook_login {
+  background:url('../images/fb_login_button.png') transparent no-repeat center center;
+  width: 154px;
+  height: 22px;
+  text-indent: -99999px;
+  display:block;
+  float:left;
+    margin-top: 92px;
+    margin-left: 20px;
+}
+#twitter_signin {
+  background:url('../images/tw_login_button.png') transparent no-repeat center center;
+  width: 154px;
+  height: 24px;
+  text-indent: -99999px;
+  display:block;
+    margin-top: 90px;
+    margin-left: 20px;
+    float:left;
+}
 /* Thumbnail rotation - Uncomment to use */
 
 /*
