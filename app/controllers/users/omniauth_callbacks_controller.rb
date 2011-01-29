@@ -12,8 +12,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
   def twitter
-        @meh = env["omniauth.auth"]
-logger.debug "Omniauth.auth: #{meh}"
     # You need to implement the method below in your model
     @user = User.find_for_twitter_oauth(env["omniauth.auth"], current_user)
 
