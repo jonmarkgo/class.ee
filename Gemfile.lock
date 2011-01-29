@@ -1,11 +1,11 @@
 GIT
-  remote: git://github.com/jerryluk/devise_oauth2_authenticatable.git
-  revision: 4a4b00504aa84a0bfa4139d399e29eddad74c345
+  remote: git://github.com/plataformatec/devise.git
+  revision: 1f8909458f3e4ae9488188150cee8690c98a7948
   specs:
-    devise_oauth2_authenticatable (0.1.0)
-      devise (>= 1.0.0)
-      json
-      oauth2
+    devise (1.2.rc)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
 
 GEM
   remote: http://rubygems.org/
@@ -38,27 +38,20 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     acts-as-taggable-on (2.0.6)
-    addressable (2.2.2)
+    addressable (2.2.4)
     arel (2.0.6)
-    bcrypt-ruby (2.1.2)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    devise (1.1.5)
-      bcrypt-ruby (~> 2.1.2)
-      warden (~> 1.0.2)
-    devise-twitter (0.1.1)
-      devise (>= 1.1.0)
-      warden_oauth (~> 0.1.1)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    faraday (0.5.3)
+    faraday (0.5.4)
       addressable (~> 2.2.2)
-      multipart-post (~> 1.0.1)
+      multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
     i18n (0.5.0)
     jquery-rails (0.2.6)
       rails (~> 3.0)
       thor (~> 0.14.4)
-    json (1.4.6)
     mail (2.2.12)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -66,16 +59,52 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     multi_json (0.0.5)
-    multipart-post (1.0.1)
+    multipart-post (1.1.0)
     mysql2 (0.2.6)
+    net-ldap (0.1.1)
+    nokogiri (1.4.4)
+    oa-basic (0.1.6)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      rest-client (~> 1.6.0)
+    oa-core (0.1.6)
+      rack (~> 1.1)
+    oa-enterprise (0.1.6)
+      net-ldap (~> 0.1.1)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+    oa-oauth (0.1.6)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      oauth (~> 0.4.0)
+      oauth2 (~> 0.1.0)
+    oa-openid (0.1.6)
+      oa-core (= 0.1.6)
+      rack-openid (~> 1.2.0)
+      ruby-openid-apps-discovery
     oauth (0.4.4)
-    oauth2 (0.1.0)
+    oauth2 (0.1.1)
       faraday (~> 0.5.0)
       multi_json (~> 0.0.4)
+    omniauth (0.1.6)
+      oa-basic (= 0.1.6)
+      oa-core (= 0.1.6)
+      oa-enterprise (= 0.1.6)
+      oa-oauth (= 0.1.6)
+      oa-openid (= 0.1.6)
+    orm_adapter (0.0.4)
     polyglot (0.3.1)
+    pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
+    rack-openid (1.2.0)
+      rack (>= 1.1.0)
+      ruby-openid (>= 2.1.8)
     rack-test (0.5.6)
       rack (>= 1.0)
     rails (3.0.3)
@@ -92,25 +121,26 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
+    ruby-openid (2.1.8)
+    ruby-openid-apps-discovery (1.2.0)
+      ruby-openid (>= 2.1.7)
+    rubyntlm (0.1.1)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
     warden (1.0.3)
       rack (>= 1.0.0)
-    warden_oauth (0.1.1)
-      oauth
-      warden (>= 0.8.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   acts-as-taggable-on
-  devise
-  devise-twitter
-  devise_oauth2_authenticatable!
+  devise!
   jquery-rails
   mysql2
-  oauth2
+  omniauth
   rails (= 3.0.3)

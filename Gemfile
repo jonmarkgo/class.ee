@@ -7,10 +7,9 @@ gem 'rails', '3.0.3'
 gem 'acts-as-taggable-on'
 gem 'mysql2'
 gem 'jquery-rails'
-gem 'devise'
-gem "oauth2"
-gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
-gem 'devise-twitter'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem "omniauth"
+#gem "oa-oauth", :require => "omniauth/oauth"
 # Use unicorn as the web server
 # gem 'unicorn'
 

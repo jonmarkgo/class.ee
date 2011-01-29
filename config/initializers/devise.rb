@@ -43,11 +43,12 @@ Devise.setup do |config|
   # from others authentication tools as :clearance_sha1, :authlogic_sha512 (then
   # you should set stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :bcrypt
+ # config.encryptor = :bcrypt
 
   # Setup a pepper to generate the encrypted password.
   config.pepper = "bf1e2a6de642e75fa04f80801712c0d4c494559ec80baf5c5e79bcd0bd6abf753326e16a5103356b044a386e374deeb54b71547144ca6adb6790dfee17f2faef"
-
+config.omniauth :facebook, "183107988366074", "84af0d7feb48d70b29e0fc38ffa5dd4b"
+config.omniauth :twitter, "BXZBz471fV95YdW1OxdovQ", "l7vWMXSFW1hl1GZWXPvSzRJHiW5eUNZoDSKGrZVetM"
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
   # he will be able to access your application without confirming. Default is nil.

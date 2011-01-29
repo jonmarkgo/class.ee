@@ -28,8 +28,8 @@
         <% if user_signed_in? %>
         <%= link_to "Sign out", destroy_user_session_path %>
          <% else %>
-        <%= link_to_oauth2 "Sign In with Facebook", :id => "facebook_login" %>
-              <%= link_to "Sign in with Twitter", "user/sign_in/twitter", :id => "twitter_signin" %>
+  <%= link_to "Sign In with Facebook", user_omniauth_authorize_path(:facebook), :id => "facebook_login" %>
+    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :id => "twitter_signin" %>
               <% end %>
      </h1>
 
